@@ -1,21 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import styled from 'styled-components';
 
 const CharCard = props => {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
+
     return (
-        <div className='char-list' key={props.id}>
-            <CardWrapper>
-               <h1>{props.name}</h1> 
-               <p>{props.birth_year}</p>   
-            </CardWrapper>
-        </div>
+        <CharList key={props.id}>
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle caret>
+                <h1>{props.name}</h1> 
+                </DropdownToggle>
+                <DropdownMenu right>
+                    <DropdownItem>
+                    Birth Year: {props.birth_year}
+                    </DropdownItem>
+                    <DropdownItem>
+                    Hair Color: {props.hair_color}
+                    </DropdownItem>
+                </DropdownMenu>
+            </Dropdown>
+        </CharList>
     );
 };
 
 
-const CardWrapper = styled.div`
-    background-color: rgba(255, 255, 255, 0.6);
-    margin: 0 auto;
+const CharList = styled.div`
+    margin: 10px auto;
     width: 350px;
 `
 

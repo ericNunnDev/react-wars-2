@@ -23,7 +23,12 @@ export default function CharList() {
         <div className="App">
           <Title>React Wars</Title>
           {chars.map(char => {
-            return <CharCard key={char.name} name={char.name} birth_year={char.birth_year}  />
+            return <CharCard
+             key={char.name} 
+             name={char.name} 
+             birth_year={char.birth_year}
+             hair_color={char.hair_color}
+              />
             })}
         </div>
       );
