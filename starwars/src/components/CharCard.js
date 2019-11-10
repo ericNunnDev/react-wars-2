@@ -1,21 +1,22 @@
 import React from 'react';
-import {
-     Card, CardImg, CardText, CardBody,
-     CardTitle, CardSubtitle
-    } from 'reactstrap';
+import styled from 'styled-components';
 
 const CharCard = props => {
     return (
-        <div className='char-list' key={props.created}>
-            <Card>
-                <CardBody>
-                <CardTitle>{props.name}</CardTitle>
-                <CardSubtitle></CardSubtitle>
-                    <CardText></CardText>
-                </CardBody>
-            </Card>
+        <div className='char-list' key={props.id}>
+            <CardWrapper>
+               <h1>{props.name}</h1> 
+               <p>{props.birth_year}</p>   
+            </CardWrapper>
         </div>
-    )
-}
+    );
+};
+
+
+const CardWrapper = styled.div`
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 0 auto;
+    width: 350px;
+`
 
 export default CharCard;
