@@ -28,6 +28,8 @@ export default function CharList() {
              name={char.name} 
              birth_year={char.birth_year}
              hair_color={char.hair_color}
+             mass={char.mass}
+             height={char.height}
               />
             })}
         </div>
